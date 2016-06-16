@@ -9,14 +9,13 @@ function ClickHandler () {
 			.findOne({ 'github.id': req.user.github.id }, { '_id': false })
 			.exec(function (err, result) {
 				if (err) { throw err; }
-
-				res.json(result.nbrClicks);
+				res.json(result);
 			});
 	};
 
 	this.addClick = function (req, res) {
 		Users
-			.findOneAndUpdate({ 'github.id': req.user.github.id }, { $inc: { 'nbrClicks.clicks': 1 } })
+			.findOneAndUpdate({ 'github.id': req.user.github.id }, { $inc: { 'github.nbrClicks': 1 } })
 			.exec(function (err, result) {
 					if (err) { throw err; }
 
@@ -27,13 +26,22 @@ function ClickHandler () {
 
 	this.resetClicks = function (req, res) {
 		Users
-			.findOneAndUpdate({ 'github.id': req.user.github.id }, { 'nbrClicks.clicks': 0 })
+			.findOneAndUpdate({ 'github.id': req.user.github.id }, { 'github.nbrClicks': 0 })
 			.exec(function (err, result) {
 					if (err) { throw err; }
 
 					res.json(result.nbrClicks);
 				}
 			);
+	};
+
+	this.getAll = function (req, res) {
+		Users
+			.find()
+			.exec(function (err, result) {
+				if (err) { throw err; }
+				res.json(result);
+			});
 	};
 
 }
