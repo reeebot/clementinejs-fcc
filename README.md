@@ -91,7 +91,7 @@ You can find a complete step-by-step tutorial on how to create this app from the
 
 ## Features
 
-| Features           | Standard  | Angular   | FCC       | FCC+angular |
+| Features           | Standard  | Angular   | FCC       | FCC/Angular |
 |:---------          |:--------: |:--------: |:---------:|:-----------:|
 | MongoDB            | _Yes_     | _Yes_     | _Yes_     | _Yes_       |
 | Express            | _Yes_     | _Yes_     | _Yes_     | _Yes_       |
